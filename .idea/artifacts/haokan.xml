@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="haokan">
+    <output-path>$PROJECT_DIR$/out/artifacts/haokan</output-path>
+    <root id="archive" name="haokan.jar">
+      <element id="module-output" name="haokan" />
+    </root>
+  </artifact>
+</component>
