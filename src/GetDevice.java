@@ -12,7 +12,11 @@ public class GetDevice extends UDF {
         if (matcher.find()) {
             ua = matcher.group(1).trim();
             //处理有些机型前面有“zh-cn;”的问题；
-            ua = ua.replace("zh-cn;","");
+            if(ua.contains(";")){
+                String[] device = ua.split(";");
+                ua = device[device.length - 1];
+            }
+            ua = ua.trim();
             if(ua.equals("")){
                 //处理金立ua在bulid前无机型
                 Integer pos1 = s.indexOf(" RV/");
@@ -21,6 +25,6 @@ public class GetDevice extends UDF {
                 ua = s.substring(pos2,pos3);
             }
         }
-        return ua;
+        return ua.trim();
     }
 }

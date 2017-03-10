@@ -19,7 +19,7 @@ public class GetAddr extends UDF{
     private ReentrantLock lock = new ReentrantLock();
 
     public String evaluate(String ip) {
-        if(ip.indexOf(":") > -1){
+        if(ip.contains(":")){
             ip = "0.0.0.0";
         }
         int ip_prefix_value = new Integer(ip.substring(0, ip.indexOf(".")));
@@ -59,7 +59,7 @@ public class GetAddr extends UDF{
         InputStream fin = null;
         lock.lock();
         try {
-            dataBuffer = ByteBuffer.allocate(3759112);
+            dataBuffer = ByteBuffer.allocate(6759112);
             fin = (InputStream)ctx.readResourceFileAsStream("ipdb.dat");
 
 
